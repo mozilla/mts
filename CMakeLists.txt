@@ -21,7 +21,7 @@ option(COMPILE_EXAMPLES "Compile examples" OFF)
 option(COMPILE_REST_SERVER "Compile Marian REST server" ON)
 option(COMPILE_SERVER "Compile marian-server" OFF)
 option(COMPILE_TESTS "Compile tests" OFF)
-option(UPDATE_SUBMODULES "Check for changes in submodules" OFF)
+option(UPDATE_SUBMODULES "Check for changes in submodules" ON)
 option(USE_CCACHE "Use ccache compiler cache (https://ccache.dev)" ON)
 option(USE_CUDNN "Use CUDNN library" OFF)
 option(USE_DOXYGEN "Build documentation with Doxygen" OFF)
@@ -32,13 +32,14 @@ option(USE_NCCL "Use NCCL library" ON)
 option(USE_SENTENCEPIECE "Download and compile SentencePiece" ON)
 option(USE_STATIC_LIBS "Link statically against non-system libs" ON)
 
+include(UpdateSubmodules)
+
 # Project versioning
 find_package(Git QUIET)
 include(GetVersionFromFile)
 message(STATUS "Project name: ${PROJECT_NAME}")
 message(STATUS "Project version: ${PROJECT_VERSION_STRING_FULL}")
 
-include(UpdateSubmodules)
 
 add_subdirectory(3rd_party)
 message("EXT_LIBS ${EXT_LIBS}")
