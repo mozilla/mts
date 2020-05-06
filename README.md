@@ -1,5 +1,4 @@
-# mts
-Marian Translation Service
+# Marian Translation Service
 
 The code in this repository implements a Marian-based translation service. 
 Currently, it offers an REST http server. The lack of https is currently on purpose,
