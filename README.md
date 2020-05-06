@@ -10,7 +10,8 @@ Currently, the server can serve only a single configuration (model or ensemble o
 
 The REST API is described [here](https://github.com/ugermann/mts/wiki/BergamotAPI/wiki/BergamotAPI).
 
-## Localized Compilation
+## Compilation
+### Local
 Notice that you need all the dependencies and libraries for a full compilation of 
 [Marian](http://github.com/marian-nmt/marian-dev).
 
@@ -22,8 +23,8 @@ cmake /path/to/your/local/clone/of/mts
 make -j
 ```
 
-## Dockerized Compilation
-(coming soon ...)
+### Dockerized Version
+(coming soon, based on http://github.com/ugermann/marian-docker ...)
 
 ## Configuring a Model to serve
 These instructions assume that you have the following files from a marian training process:
