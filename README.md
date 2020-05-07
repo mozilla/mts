@@ -45,6 +45,7 @@ These instructions assume that you have the following files from a marian traini
   relative-paths: true
   models: [ model.bin ]
   vocabs: [ joint-vocab.spm, joint-vocab.spm ]
+  alignment: true
   beam-size: 4
   normalize: 1
   word-penalty: 0
