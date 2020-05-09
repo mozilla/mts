@@ -5,6 +5,8 @@
 
 Welcome to Marian Translation Service's documentation!
 ======================================================
+Here is some text.
+
 
 .. toctree::
    :maxdepth: 2
