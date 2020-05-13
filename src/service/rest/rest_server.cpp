@@ -13,6 +13,7 @@
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wsuggest-override"
+#pragma GCC diagnostic ignored "-Wimplicit-fallthrough"
 #include "crow.h"
 #pragma GCC diagnostic pop
 
