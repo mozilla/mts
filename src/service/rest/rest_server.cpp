@@ -173,7 +173,7 @@ int main(int argc, char* argv[])
 
   auto options = cp.parseOptions(argc, argv, true);
   auto service = New<tservice_t>(options);
-  service->start<BeamSearch>();
+  service->template start<BeamSearch>();
 
   crow::SimpleApp app;
   std::string doc_root = options->get<std::string>("server-root");

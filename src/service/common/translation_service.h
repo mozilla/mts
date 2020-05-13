@@ -77,7 +77,7 @@ public:
       // callback() is not static, so we must wrap it in a lambda:
       auto cb = [=](Ptr<History const> h) { this->callback_(h); };
       auto w = New<TranslationWorker>(d, vocabs_, slgen_, jq_, cb, options_);
-      w->start<Search>();
+      w->template start<Search>();
       workers_.push_back(w);
     }
   }
