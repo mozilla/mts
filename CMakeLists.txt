@@ -42,7 +42,6 @@ message(STATUS "Project version: ${PROJECT_VERSION_STRING_FULL}")
 
 
 add_subdirectory(3rd_party)
-message("EXT_LIBS ${EXT_LIBS}")
 include_directories(${INCLUDE_DIRECTORIES})
 
 list(APPEND BOOST_COMPONENTS system)
