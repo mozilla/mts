@@ -3,9 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Marian Translation Service's documentation!
+Marian Translation Service Documentation!
 ======================================================
-Here is some text.
+Marian Transliation Service is a Service Front-end to
+[Marian](http://github.com/marian-nmt/marian-dev)-backed translation services.
+
 
 
 .. toctree::
