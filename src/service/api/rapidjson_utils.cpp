@@ -111,7 +111,7 @@ Value hyp2json(const marian::Result& nbestlist_item,
 
   if (opts.withWordScores) {
     Value ws(kArrayType);
-    std::vector<float> wscores = hyp->getScoreBreakdown();
+    std::vector<float> wscores = hyp->tracebackWordScores();
     if (service.isRight2LeftDecoder())
       std::reverse(wscores.begin(), wscores.end());
     ws.Reserve(wscores.size(),alloc);
