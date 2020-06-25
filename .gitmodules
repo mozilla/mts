@@ -1,6 +1,6 @@
 [submodule "3rd_party/marian"]
 	path = 3rd_party/marian
-	url = https://github.com/marian-nmt/marian-dev
+	url = https://github.com/mozilla/marian-dev
 [submodule "3rd_party/ssplit-cpp"]
 	path = 3rd_party/ssplit-cpp
 	url = http://github.com/ugermann/ssplit-cpp
