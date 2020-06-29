@@ -6,6 +6,7 @@
 #include "data/alignment.h"
 #include "service/common/translation_job.h"
 #include "service/api/output_options.h"
+#include "service/quality_estimation/qe.h"
 
 namespace rapidjson {
 
@@ -67,8 +68,13 @@ Value hyp2json(const marian::Result& nbestlist_item,
   // @TODO: add warnings and errors, if any
 
   // Sentence score and translation are always included
-  ret.AddMember("sentenceScore",std::get<2>(nbestlist_item),alloc);
+  float sent_score = std::get<2>(nbestlist_item);
+  ret.AddMember("sentenceScore",sent_score,alloc);
   ret.AddMember("translation",Value(translation.c_str(),alloc),alloc);
+
+  if (opts.withQualityEstimate) {
+    ret.AddMember("sentenceQualityScore",marian::qe::sentence_score2qe_score(sent_score),alloc);
+  }
 
   if (opts.withTokenization) {
     ret.AddMember("translationTokenized",words2json(ttok_ids,V,alloc),alloc);
@@ -179,13 +185,15 @@ bool setOptions(marian::server::OutputOptions& opts, const rapidjson::Value& v) 
   if (!v.IsObject()) {
     return false; // an error occurred; should we throw an exception here?
   }
-  opts.withWordAlignment = get(v, "returnWordAlignment", opts.withWordAlignment);
+  opts.withOriginal        = get(v, "returnOriginal", opts.withOriginal);
+  opts.withQualityEstimate = get(v, "returnQualityEstimate",
+                                 opts.withQualityEstimate);
+  opts.withSentenceScore = get(v, "returnSentenceScore", opts.withSentenceScore);
   opts.withSoftAlignment = get(v, "returnSoftAlignment", opts.withSoftAlignment);
   opts.withTokenization  = get(v, "returnTokenization",  opts.withTokenization);
-  opts.withSentenceScore = get(v, "returnSentenceScore", opts.withSentenceScore);
+  opts.withWordAlignment = get(v, "returnWordAlignment", opts.withWordAlignment);
   opts.withWordScores    = get(v, "returnWordScores",    opts.withWordScores);
   opts.withTokenization |= opts.withWordAlignment || opts.withSoftAlignment;
-  opts.withOriginal = get(v, "returnOriginal", opts.withOriginal);
   return true;
 }
 

@@ -5,14 +5,15 @@ namespace marian {
 namespace server {
 
 bool OutputOptions::noDetails() const {
-  // we don't need to check to withWordAlignment and withSoftAlignment, because
+  // we don't need to check withWordAlignment and withSoftAlignment, because
   // these imply withTokenization
-  return !(withTokenization ||
+  return !(withOriginal ||
+           withQualityEstimate ||
            withSentenceScore ||
-           withWordScores ||
-           withWordAlignment ||
            withSoftAlignment ||
-           withOriginal);
+           withTokenization ||
+           withWordAlignment ||
+           withWordScores);
 }
 
 }}// end of namespace marian::server

@@ -9,6 +9,7 @@ struct OutputOptions {
   bool withSentenceScore{false};
   bool withWordScores{false};
   bool withOriginal{false};
+  bool withQualityEstimate{false};
 
   // Return true if all detail options are false:
   bool noDetails() const;

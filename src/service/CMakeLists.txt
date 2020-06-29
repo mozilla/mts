@@ -13,6 +13,7 @@ if (COMPILE_REST_SERVER OR COMPILE_AMQP_WORKER OR COMPILE_WEBSOCKET_SERVER)
     common/translation_job.cpp
     common/translation_service.cpp
     common/translation_worker.cpp
+    quality_estimation/qe.cpp
     )
   target_compile_options(marian-service PUBLIC ${ALL_WARNINGS})
 endif(COMPILE_REST_SERVER OR COMPILE_AMQP_WORKER OR COMPILE_WEBSOCKET_SERVER)
